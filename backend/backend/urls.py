@@ -24,7 +24,10 @@ from vehicle import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('api/', include(router.urls)),
-    path('api/', include('vehicle.urls')),
+    path('api/vehicles/', include('vehicle.urls')),
+    path('api/orders/', include('orders.urls')),
+    
+    
 ]
 
 

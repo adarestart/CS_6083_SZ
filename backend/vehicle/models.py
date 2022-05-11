@@ -47,3 +47,23 @@ class VehicleInfo(models.Model):
     vehicle_class = models.ForeignKey('VehicleClass', on_delete=models.CASCADE)
     office_info = models.ForeignKey('VehicleOffice', on_delete=models.CASCADE)
 
+class VehicleInfoFull(models.Model):
+    # I guess we should have a PK mark here ================================= |
+    # vehicle_id = models.CharField(verbose_name="vehicle id", max_length=10, primary_key=True)
+    make = models.CharField(verbose_name="make", max_length=20)
+    model = models.CharField(verbose_name="vehicle's model", max_length=20)
+    make_year = models.DateField(verbose_name="made year")
+    VIN = models.CharField(verbose_name="Vehicle_Identification_Number", max_length=10)
+    LPN = models.CharField(verbose_name="License Plate Number", max_length=10)
+    #slug = models.SlugField(max_length=1000)
+    rented = models.BooleanField(default=False)
+
+    class_type = models.CharField(verbose_name="class type", max_length=50)
+
+    daily_rate = models.DecimalField(verbose_name="daily rate for vehicle", max_digits=4, decimal_places=2)
+    extra_rate = models.DecimalField(verbose_name="extra rate for vehicle", max_digits=4, decimal_places=2)
+   
+
+    vehicle_class = models.ForeignKey('VehicleClass', on_delete=models.CASCADE)
+    office_info = models.ForeignKey('VehicleOffice', on_delete=models.CASCADE)
+

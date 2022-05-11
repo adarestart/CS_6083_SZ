@@ -15,6 +15,7 @@ class OrderInfo(models.Model):
     # 1. return a car
     # 2. rent a car
     odo_limit = models.DecimalField(verbose_name="odometer limit", max_digits=5, decimal_places=2)
+    amount = models.DecimalField(verbose_name="order_amount", max_digits=8, decimal_places=2,default=0)
 
     vehicle_id = models.ForeignKey('vehicle.VehicleInfo',on_delete=models.SET(999))
     cust_id = models.ForeignKey('customer.IndividualInfo',on_delete=models.CASCADE)
