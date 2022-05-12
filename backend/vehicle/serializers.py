@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import VehicleClass, VehicleInfo, VehicleOffice, VehicleInfoFull, VehicleCity
+from .models import VehicleClass, VehicleInfo, VehicleOffice, VehicleFullInfo, VehicleCity
 
 class ClassSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,13 +15,14 @@ class VehicleSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = VehicleInfo
-        fields = ('id', 'make','model','make_year','VIN','LPN','vehicle_class','office_info')
+        fields = ('id', 'make','model','make_year','VIN','LPN','rented','vehicle_class','office_info')
 
 class VehicleFullSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = VehicleInfoFull
-        fields = ('id', 'make','model','make_year','VIN','LPN','vehicle_class','office_info','class_type','daily_rate','extra_rate')
+        model = VehicleFullInfo
+        #fields = ('id', 'make','model','make_year','VIN','LPN','vehicle_class','office_info','class_type','daily_rate','extra_rate')
+        fields = ('id', 'make','model','make_year','VIN','LPN','vehicle_class','office_info','class_type','daily_rate','extra_rate','street','city','state','zipcode','phone')
 
 
 class VehicleCitySerializer(serializers.ModelSerializer):

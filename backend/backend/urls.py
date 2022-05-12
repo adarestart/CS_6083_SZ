@@ -26,6 +26,7 @@ urlpatterns = [
     #path('api/', include(router.urls)),
     path('api/vehicles/', include('vehicle.urls')),
     path('api/orders/', include('orders.urls')),
+    path('api/customer/', include('customer.urls')),
     
     
 ]

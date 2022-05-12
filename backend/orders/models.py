@@ -1,4 +1,5 @@
 from django.db import models
+from regex import DEBUG
 
 # Create your models here.
 
@@ -31,7 +32,7 @@ class OrderInvoice(models.Model):
     invoice_date = models.DateField(verbose_name="invoice date")
     amount = models.DecimalField(verbose_name="invoice_amount", max_digits=8, decimal_places=2)
     
-    order_id = models.ForeignKey('OrderInfo',on_delete=models.SET(999))
+    order_id = models.ForeignKey('OrderInfo',on_delete=models.SET_DEFAULT,default=999)
 
     class Meta:
         verbose_name = 'Invoice'
